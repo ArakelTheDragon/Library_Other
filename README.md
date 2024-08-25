@@ -1,4 +1,5 @@
 # All other topics
-Will be working on a new type of engineering crypto currency(coin or token) which does not require much electricity, is easy to implement and will be used later for services and goods.
-Will be working on different programming languages, including OS programming and Android programming.
-Will be working on other topics, including DIY, greenhouses, automotive, CAN, diagnostics, factory machines, websites, PHP, HTML and etc.
+Every file is a separate project, or there will be a folder named "Tool_Project_Other" if there are more than 1 files needed.
+
+Example:
+Python_RenamePrefixOfFiles
