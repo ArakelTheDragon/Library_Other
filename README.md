@@ -8,14 +8,18 @@ List of projects:
 1. Python_AlarmOnWiFiDrop.zip
 Sounds an alarm when the internet connection drops
 
-2. Python_RDPInfo.py
-Displays the remote desktop connection information in the terminal.
+2. Python_RDPInfo.zip
+Displays the remote desktop connection information in the terminal and stores the info in a file. There is an exe file that you can run.
+Includes:
+- Python_RDPInfo_ExtendedWorking.py
+- Python_RDPInfo_OriginalWorking.py
+- Python_RDPInfo.exe - this file is based on the extended version, the original version does not have the option to add the info to a file and close the CMD on key press
 
-3. Python_VPNTest.py
+4. Python_VPNTest.py
 Test the VPN connection
 
-4. Python_Speedtest_v3_extended.py
+5. Python_Speedtest_v3_extended.py
 Test the WiFi speed for a long time and gives a middle result
 
-5. Python_Discod_BasicBot.py
+6. Python_Discod_BasicBot.py
 A Python Discord Basic Bo, it gets the bot online, you will need your bot token from the discord developer program.
