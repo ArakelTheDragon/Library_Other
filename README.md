@@ -13,3 +13,6 @@ Displays the remote desktop connection information in the terminal.
 
 3. Python_VPNTest.py
 Test the VPN connection
+
+4. Python_Speedtest_v3_extended.py
+Test the WiFi speed for a long time and gives a middle result
