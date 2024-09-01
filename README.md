@@ -1,3 +1,5 @@
+**Disclaimed!** All files are provided as is and no guarantee is given that they will work or have no negative impact.
+
 # All other topics
 Every file is a separate project, or there will be a folder named "Tool_Project_Other" if there are more than 1 files needed.
 
@@ -26,3 +28,6 @@ A Python Discord Basic Bo, it gets the bot online, you will need your bot token 
 
 7. Python_InternetSpeedTest.zip
 Tests the average speed over time. Open the pspeedtest_v3_extendedWorking.exe file and leave it open, the results are also saved into log.txt
+
+8. Python_AlarmOnWiFiDrop.zip
+Sounds an alarm when the WiFi drops, it includes a Python script with the source code and an exe file that you can use. Please remember to download and place the wav and mp3 files in the same folder.
