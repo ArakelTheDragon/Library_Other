@@ -1,4 +1,4 @@
-**Disclaimed!** All files are provided as is and no guarantee is given that they will work or have no negative impact.
+**Disclaimer!** All files are provided as is and no guarantee is given that they will work or have no negative impact.
 
 # All other topics
 Every file is a separate project, or there will be a folder named "Tool_Project_Other" if there are more than 1 files needed.
