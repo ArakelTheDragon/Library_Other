@@ -31,3 +31,13 @@ Tests the average speed over time. Open the pspeedtest_v3_extendedWorking.exe fi
 
 8. Python_AlarmOnWiFiDrop.zip
 Sounds an alarm when the WiFi drops, it includes a Python script with the source code and an exe file that you can use. Please remember to download and place the wav and mp3 files in the same folder.
+
+9. DancefloorPop_v2.m4a
+Sample music made by us
+
+10. DancefloorPop_v3.m4a
+Sample music made by us
+
+11. DancefloorPop_v4.m4a
+Sample music made by us
+
