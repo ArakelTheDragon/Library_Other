@@ -23,3 +23,6 @@ Test the WiFi speed for a long time and gives a middle result
 
 6. Python_Discod_BasicBot.py
 A Python Discord Basic Bo, it gets the bot online, you will need your bot token from the discord developer program.
+
+7. Python_InternetSpeedTest.zip
+Tests the average speed over time. Open the pspeedtest_v3_extendedWorking.exe file and leave it open, the results are also saved into log.txt
