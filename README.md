@@ -10,3 +10,6 @@ Sounds an alarm when the internet connection drops
 
 2. Python_RDPInfo.py
 Displays the remote desktop connection information in the terminal.
+
+3. Python_VPNTest.py
+Test the VPN connection
