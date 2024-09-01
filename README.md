@@ -16,3 +16,6 @@ Test the VPN connection
 
 4. Python_Speedtest_v3_extended.py
 Test the WiFi speed for a long time and gives a middle result
+
+5. Python_Discod_BasicBot.py
+A Python Discord Basic Bo, it gets the bot online, you will need your bot token from the discord developer program.
