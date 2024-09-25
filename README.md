@@ -46,4 +46,7 @@ Sample music made by us
 13. FunkyPop_v3.m4a
 
 14. FunkyPop_v4.m4a
+    
+15. ESP8266_LCD
+The project works, display address is 0x27, 16x2 LCD, after many attempts I finally managed to get it to work, VCC to Vin(5V), SDA to D4, SCL D3
 
