@@ -50,3 +50,6 @@ Sample music made by us
 15. ESP8266_LCD
 The project works, display address is 0x27, 16x2 LCD, after many attempts I finally managed to get it to work, VCC to Vin(5V), SDA to D4, SCL D3
 
+16. ESP8266_LCD_WebServer After getting the LCD to work, we made a web server that sends the info to the LCD. The LCD has 32 chars max, the server is set to 32 chars now. In the zip folder from the GitHub link you will find the ESP8266 project for setting up the LCD and the LCD with WebServer.
+
+
