@@ -56,4 +56,6 @@ The project works, display address is 0x27, 16x2 LCD, after many attempts I fina
 
 18. ESP8266_LCD096_MonitorMining_v5_Working_v3_Final.zip A server which takes the stats from the mintme pool json response https://www.mintme.com/pool/api/accounts/0xe8911e98a00d36a1841945d6270611510f1c7e88, and displays on an OLED 0.96inch 128x32 display the stats for workers. It stores the earned tokens in an address with pointers and reads it back after a reboot.
 
+19. Speedtest-master.zip Upload the unzipped files to your host, make sure the hosts supports js, css and is fast enough for downloading files for the speedtest. Test at cfctools.unaux.com/speedtest
+
 
