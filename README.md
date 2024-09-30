@@ -58,4 +58,4 @@ The project works, display address is 0x27, 16x2 LCD, after many attempts I fina
 
 19. Speedtest-master.zip Upload the unzipped files to your host, make sure the hosts supports js, css and is fast enough for downloading files for the speedtest. Test at cfctools.unaux.com/speedtest
 
-
+20. Web_Tool_OnlineCalc a simple calc, can be found at http://cfctools.unaux.com/calc/
