@@ -54,4 +54,6 @@ The project works, display address is 0x27, 16x2 LCD, after many attempts I fina
 
 17. ESP8266_SmarHome_LCDLockDevice_v3 First step to develop a smart home, contains a nodeMCU wemost D1 mini, LCD 16x2 I2C, password login to a web server, the IP address can be found from your router at 192.168.0.1, possible improvements are add a keypad and door lock, develop the switch logic and motor  control, add sound alarm
 
+18. ESP8266_LCD096_MonitorMining_v5_Working_v3_Final.zip A server which takes the stats from the mintme pool json response https://www.mintme.com/pool/api/accounts/0xe8911e98a00d36a1841945d6270611510f1c7e88, and displays on an OLED 0.96inch 128x32 display the stats for workers. It stores the earned tokens in an address with pointers and reads it back after a reboot.
+
 
