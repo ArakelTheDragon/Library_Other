@@ -68,3 +68,12 @@ The list so far contains:
 7-zip
 LibreOffice
 Notepad++
+
+23. Python_RaspberiPi_ClapBulb.zip
+!!! This project is not tested !!!
+
+The task involves writing a code for a Raspberry Pi 4 that operates indoors.
+
+The project has two main components:
+- The Raspberry Pi should send an SMS alert through Twilio whenever it detects a 'clap' sound.
+- Upon receiving a "Y" reply via SMS, it should light up an LED bulb.
