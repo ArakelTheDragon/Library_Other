@@ -61,3 +61,10 @@ The project works, display address is 0x27, 16x2 LCD, after many attempts I fina
 20. Web_Tool_OnlineCalc a simple calc, can be found at http://cfctools.unaux.com/calc/
 
 21. ESP8266_Repeater.zip A WiFi Mesh Repeaterm can be meshed or with a separate WiFi network, meshed devices have the same WiFi name and password as the original WiFi, they just boost the signal, NOT mesh devices have a different name than the original WiFi
+
+22. Python_Windows_AutoInstall.zip The script installs a list of software to a Windows based system. This simplified the installation times and helps to setup client(worker) PCs faster.
+
+The list so far contains:
+7-zip
+LibreOffice
+Notepad++
