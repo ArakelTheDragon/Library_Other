@@ -77,3 +77,6 @@ The task involves writing a code for a Raspberry Pi 4 that operates indoors.
 The project has two main components:
 - The Raspberry Pi should send an SMS alert through Twilio whenever it detects a 'clap' sound.
 - Upon receiving a "Y" reply via SMS, it should light up an LED bulb.
+- 
+24. ESP8266_Mining_Mineme_v2_Working.zip a working miner with nodeMCU ESP8266, it takes a long time for the miner to appear in the pool, since it has a valid share after a long time, we are using the lowest difficulty miner we have https://web.gonspool.com/ at port 3333, difficulty is 250 to 10000, we mine the mintme coin, our address is from the wallet on mintme.com
+
