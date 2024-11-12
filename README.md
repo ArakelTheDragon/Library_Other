@@ -81,3 +81,4 @@ The project has two main components:
 24. ESP8266_Mining_Mineme_v2_Working.zip a working miner with nodeMCU ESP8266, it takes a long time for the miner to appear in the pool, since it has a valid share after a long time, we are using the lowest difficulty miner we have https://web.gonspool.com/ at port 3333, difficulty is 250 to 10000, we mine the mintme coin, our address is from the wallet on mintme.com
 
 25. **ESP8266_GLCD128x64_Test_v4_WorkingImprovements**.**zip**, ESP8266 nodeMCU & LCD Display ST7567S GM12864-59N
+26. **Proteus_XC8_MeasureCarBat_v1.zip** Measures the signal on pin AN0 and turns on LEDs in sequence from pin RB0 to RB3. Uses PIC16F88, PIC16F84A does not have an ADC module.
