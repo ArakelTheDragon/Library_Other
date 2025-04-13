@@ -82,3 +82,4 @@ The project has two main components:
 
 25. **ESP8266_GLCD128x64_Test_v4_WorkingImprovements**.**zip**, ESP8266 nodeMCU & LCD Display ST7567S GM12864-59N
 26. **Proteus_XC8_MeasureCarBat_v1.zip** Measures the signal on pin AN0 and turns on LEDs in sequence from pin RB0 to RB3. Uses PIC16F88, PIC16F84A does not have an ADC module.
+27. KiCad_SimpleDCMotorControl_v1.zip - simple DC motor direction and RPM control, youtube vide
