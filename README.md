@@ -87,7 +87,7 @@ The project has two main components:
 27. KiCad_SimpleDCMotorControl_v1.zip - simple DC motor direction and RPM control, youtube video
 28. KiCad_nodeMCU_BoilerControl_v1.zip - control a boiler with nodeMCU wemos D1 mini and a DH11 temp sensor
 29. KiCad Automotive Blinker v1 - cool automotive blinked with measuring car batt.
-30. ESP Light Bulb Smart Plug with Alexa - we have now started to try to profit so we can support our work by implementing Duino-Coin mining on our nodeMCU projects, the nodeMCU mines on the background a small amount and does the thing its suppose to do as well.
+30. 30. ESP_Alexa_v2.zip - ESP Light Bulb Smart Plug with Alexa, we have now started to try to profit so we can support our work by implementing Duino-Coin mining on our nodeMCU projects, the nodeMCU mines on the background a small amount and does the thing its suppose to do as well.
 Instructions on using:
 - Connect to nodeMCU-setup wifi
 - Set WiFi Name(SSID) and password
