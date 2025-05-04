@@ -5,8 +5,8 @@ Every file is a separate project, or there will be a folder named "Tool_Project_
 
 Example:
 Python_RenamePrefixOfFiles
-**
-We have now started to try to profit so we can support our work by implementing Duino-Coin mining on our nodeMCU projects, the nodeMCU mines on the background a small amount and does the thing its suppose to do as well. For these projects only a binary will be included and no sketch.**
+
+**We have now started to try to profit so we can support our work by implementing Duino-Coin mining on our nodeMCU projects, the nodeMCU mines on the background a small amount and does the thing its suppose to do as well. For these projects only a binary will be included and no sketch.**
 
 List of projects:
 1. Python_AlarmOnWiFiDrop.zip
