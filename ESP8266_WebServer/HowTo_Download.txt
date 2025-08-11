@@ -1,0 +1,1 @@
+Press Library_Other, press on the green button code and at the bottom of the menu you will see download zip. This downloads all files in the repository. The folder you need is ESP8266_WebServer.
