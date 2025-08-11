@@ -1,1 +1,16 @@
+An HTML/JS web server max 2MB hosted on an ESP8266. Uses your public IP as the web site IP, connects to your WiFi. Open the link, press ctrl+f and search for ESP8266_WebServer.zip.
 
+You must download and install the LittleFS plugin and the LittleFS library!
+
+Links are in the video description:
+
+<b>You must have the LittleFS plugin for Arduino IDE installed!</b>
+
+This is the plugin and how to install it.
+https://randomnerdtutorials.com/install-esp8266-nodemcu-littlefs-arduino/
+
+Code Download:
+https://github.com/ArakelTheDragon/Library_Other/blob/b27783f69c9c8c737e3eede9a9cdab529212dc5d/ESP8266_WebServer.zip
+
+Video how to make the server:
+https://www.youtube.com/watch?v=LxsBPI7f2b4&t=12s
