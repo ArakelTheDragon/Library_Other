@@ -94,4 +94,4 @@ Instructions on using:
 - Discover with Alexa
 - Switch On/Off
 
-31. ESP8266_WebServer.zip (HTML/JS only) - you can host a webserver on the ESP8266, it only supports HTML/JS in this version.
+31. ESP8266_WebServer (HTML/JS only) - you can host a webserver on the ESP8266, it only supports HTML/JS in this version.
