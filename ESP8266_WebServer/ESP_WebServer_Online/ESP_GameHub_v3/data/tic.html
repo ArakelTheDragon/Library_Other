@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tic Tac Toe vs Smart Computer</title>
+  <style>
+    table { margin: 20px auto; border-collapse: collapse; }
+    td { width: 60px; height: 60px; font-size: 2em; text-align: center; border: 1px solid #000; cursor: pointer; }
+    h2 { text-align: center; }
+  </style>
+</head>
+<body>
+  <h2 id="status">Your Turn (X)</h2>
+  <table id="board"></table>
+  <script>
+    const board = document.getElementById("board");
+    const status = document.getElementById("status");
+    const cells = [];
+    let gameOver = false;
+
+    for (let i = 0; i < 3; i++) {
+      const row = board.insertRow();
+      for (let j = 0; j < 3; j++) {
+        const cell = row.insertCell();
+        cell.onclick = () => playerMove(i, j);
+        cells.push(cell);
+      }
+    }
+
+    function getBoardArray() {
+      const arr = [];
+      for (let i = 0; i < 3; i++) {
+        arr[i] = [];
+        for (let j = 0; j < 3; j++) {
+          arr[i][j] = board.rows[i].cells[j].textContent || '';
+        }
+      }
+      return arr;
+    }
+
+    function playerMove(i, j) {
+      if (gameOver || board.rows[i].cells[j].textContent) return;
+      board.rows[i].cells[j].textContent = "X";
+      if (checkWinner("X")) {
+        status.textContent = "You win!";
+        gameOver = true;
+        return;
+      }
+      if (isDraw()) {
+        status.textContent = "Draw!";
+        gameOver = true;
+        return;
+      }
+      status.textContent = "Computer's Turn (O)";
+      setTimeout(() => computerMove(), 300);
+    }
+
+    function computerMove() {
+      const bestMove = findBestMove(getBoardArray());
+      board.rows[bestMove.row].cells[bestMove.col].textContent = "O";
+      if (checkWinner("O")) {
+        status.textContent = "Computer wins!";
+        gameOver = true;
+      } else if (isDraw()) {
+        status.textContent = "Draw!";
+        gameOver = true;
+      } else {
+        status.textContent = "Your Turn (X)";
+      }
+    }
+
+    function checkWinner(player) {
+      const b = getBoardArray();
+      const lines = [
+        [[0,0],[0,1],[0,2]],[[1,0],[1,1],[1,2]],[[2,0],[2,1],[2,2]],
+        [[0,0],[1,0],[2,0]],[[0,1],[1,1],[2,1]],[[0,2],[1,2],[2,2]],
+        [[0,0],[1,1],[2,2]],[[0,2],[1,1],[2,0]]
+      ];
+      return lines.some(line => line.every(([i,j]) => b[i][j] === player));
+    }
+
+    function isDraw() {
+      return [...board.querySelectorAll("td")].every(td => td.textContent);
+    }
+
+    function findBestMove(board) {
+      let bestScore = -Infinity;
+      let move = {};
+      for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+          if (board[i][j] === "") {
+            board[i][j] = "O";
+            let score = minimax(board, 0, false);
+            board[i][j] = "";
+            if (score > bestScore) {
+              bestScore = score;
+              move = { row: i, col: j };
+            }
+          }
+        }
+      }
+      return move;
+    }
+
+    function minimax(board, depth, isMaximizing) {
+      if (checkStaticWinner(board, "O")) return 10 - depth;
+      if (checkStaticWinner(board, "X")) return depth - 10;
+      if (isStaticDraw(board)) return 0;
+
+      if (isMaximizing) {
+        let maxEval = -Infinity;
+        for (let i = 0; i < 3; i++) {
+          for (let j = 0; j < 3; j++) {
+            if (board[i][j] === "") {
+              board[i][j] = "O";
+              maxEval = Math.max(maxEval, minimax(board, depth + 1, false));
+              board[i][j] = "";
+            }
+          }
+        }
+        return maxEval;
+      } else {
+        let minEval = Infinity;
+        for (let i = 0; i < 3; i++) {
+          for (let j = 0; j < 3; j++) {
+            if (board[i][j] === "") {
+              board[i][j] = "X";
+              minEval = Math.min(minEval, minimax(board, depth + 1, true));
+              board[i][j] = "";
+            }
+          }
+        }
+        return minEval;
+      }
+    }
+
+    function checkStaticWinner(b, player) {
+      const lines = [
+        [[0,0],[0,1],[0,2]],[[1,0],[1,1],[1,2]],[[2,0],[2,1],[2,2]],
+        [[0,0],[1,0],[2,0]],[[0,1],[1,1],[2,1]],[[0,2],[1,2],[2,2]],
+        [[0,0],[1,1],[2,2]],[[0,2],[1,1],[2,0]]
+      ];
+      return lines.some(line => line.every(([i,j]) => b[i][j] === player));
+    }
+
+    function isStaticDraw(b) {
+      return b.flat().every(cell => cell !== "");
+    }
+  </script>
+</body>
+</html>

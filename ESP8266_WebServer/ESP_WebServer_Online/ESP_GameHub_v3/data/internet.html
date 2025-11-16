@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Internet Drop Monitor</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f2f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #0b5394;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    main {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    #status {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color: #007700;
+    }
+    #warning {
+      background-color: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffeeba;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #0b5394;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin-right: 10px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #06396a;
+    }
+    pre {
+      background-color: #ffffff;
+      padding: 15px;
+      border: 1px solid #ccc;
+      max-height: 300px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+    }
+    footer {
+      background-color: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Internet Connection Drop Monitor</h1>
+  </header>
+  <main>
+    <div id="status">Checking connection...</div>
+    <div id="warning">
+      Warning: If you navigate away from this page, put your PC/mobile to sleep, or close the browser, monitoring will stop.
+    </div>
+    <button onclick="downloadLogs()">Download Logs</button>
+    <button onclick="clearLogs()">Clear Logs</button>
+    <pre id="logDisplay"></pre>
+  </main>
+  <footer>
+    &copy; CfCbazar Internet Drop Test
+  </footer>
+
+  <script>
+    let offlineTime = null;
+    let logs = JSON.parse(localStorage.getItem('connectionLogs') || '[]');
+    let wasHidden = false;
+
+    function updateStatus() {
+      const statusEl = document.getElementById('status');
+      const now = new Date().toLocaleTimeString();
+
+      if (navigator.onLine) {
+        statusEl.textContent = 'Online';
+        statusEl.style.color = '#007700';
+        if (offlineTime !== null) {
+          const duration = ((Date.now() - offlineTime) / 1000).toFixed(2);
+          const logEntry = `Reconnected after ${duration}s at ${now}`;
+          logs.push(logEntry);
+          localStorage.setItem('connectionLogs', JSON.stringify(logs));
+          offlineTime = null;
+          logNetworkInfo();
+        }
+      } else {
+        statusEl.textContent = 'Offline';
+        statusEl.style.color = '#cc0000';
+        if (offlineTime === null) {
+          offlineTime = Date.now();
+          const logEntry = `Connection lost at ${now}`;
+          logs.push(logEntry);
+          localStorage.setItem('connectionLogs', JSON.stringify(logs));
+        }
+      }
+
+      updateLogDisplay();
+    }
+
+    function logNetworkInfo() {
+      const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+      if (connection) {
+        const now = new Date().toLocaleTimeString();
+        const info = `Network Info at ${now}:
+  Type: ${connection.type || 'unknown'}
+  Effective Type: ${connection.effectiveType || 'unknown'}
+  Downlink (Mbps): ${connection.downlink || 'unknown'}
+  RTT (ms): ${connection.rtt || 'unknown'}
+  Save Data: ${connection.saveData || false}`;
+
+        logs.push(info);
+        localStorage.setItem('connectionLogs', JSON.stringify(logs));
+      }
+    }
+
+    function downloadLogs() {
+      const content = logs.join('\n');
+      const blob = new Blob([content], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'connection_logs.txt';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function clearLogs() {
+      logs = [];
+      localStorage.removeItem('connectionLogs');
+      updateLogDisplay();
+      document.getElementById('status').textContent = 'Logs cleared. Monitoring...';
+      document.getElementById('status').style.color = '#007700';
+    }
+
+    function updateLogDisplay() {
+      document.getElementById('logDisplay').textContent = logs.join('\n');
+    }
+
+    document.addEventListener("visibilitychange", () => {
+      const now = new Date().toLocaleTimeString();
+      if (document.hidden) {
+        wasHidden = true;
+        logs.push(`[Paused] Monitoring paused: Tab inactive or minimized at ${now}`);
+      } else if (wasHidden) {
+        logs.push(`[Resumed] You returned at ${now}. Monitoring may have been paused due to tab inactivity or device sleep.`);
+        wasHidden = false;
+      }
+      localStorage.setItem('connectionLogs', JSON.stringify(logs));
+      updateLogDisplay();
+    });
+
+    window.addEventListener('online', updateStatus);
+    window.addEventListener('offline', updateStatus);
+
+    setInterval(updateStatus, 5000);
+    updateStatus(); // Initial check
+  </script>
+</body>
+</html>

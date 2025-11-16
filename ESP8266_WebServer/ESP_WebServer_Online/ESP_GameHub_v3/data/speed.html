@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet Speed Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #2c3e50, #3498db);
+            color: white;
+        }
+        #speed {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        canvas {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        a {
+            color: yellow;
+            text-decoration: none;
+            margin: 10px;
+        }
+        footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Internet Speed Test</h1>
+    <p id="status">Testing your download speed...</p>
+    <div id="speed">0 Mbps</div>
+    <canvas id="speedChart"></canvas>
+    <button onclick="startTest()">Test Again</button>
+    
+    <div>
+        <a href="/privacy.html">Privacy Policy</a> |
+        <a href="/games.html">Games</a>
+    </div>
+
+    <footer>
+        <p>Copyright © CfCbazar</p>
+        <a href='https://www.free-counters.org/'>www.free-counters.org</a>
+        <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=c8d76504d810d590807a4e0b559040c3a31ed9f5'></script>
+        <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1297521/t/5"></script>
+    </footer>
+
+    <script>
+        const images = [
+            { url: "https://upload.wikimedia.org/wikipedia/commons/6/66/Grand-view-point-003.jpg", size: 59 },
+            { url: "https://upload.wikimedia.org/wikipedia/commons/9/93/10_Cents-_1997_-_Coins_-_10_Cents_0.10_ERN_USD_0.0067_-_Round_-_Nickel_clad_steel_-Obverse-348696113035.jpg", size: 0.142 },
+            { url: "https://upload.wikimedia.org/wikipedia/commons/3/31/Wapen_van_Leiden_aan_het_monument_van_Van_der_Werf%2C_Objectnr_PV_PV9735.30a.jpg", size: 0.956 },
+            { url: "https://upload.wikimedia.org/wikipedia/commons/f/fd/Alaus%C3%AD_Inner_yards_east_of_Calle_Sim%C3%B3n_Bol%C3%ADvar_2.jpg", size: 11.61 },
+            { url: "https://upload.wikimedia.org/wikipedia/commons/d/db/Hinweisschild_Kreisstra%C3%9Fe_AN_19_20250129_134949.jpg", size: 17.45 },
+            { url: "https://upload.wikimedia.org/wikipedia/commons/f/f8/%22Books_are_weapons_in_the_war_of_ideas%22_-_NARA_-_513575_-_restored.jpg", size: 19.77 },
+            { url: "https://upload.wikimedia.org/wikipedia/commons/b/b3/%22Blow_fight%21%22_General_August_Willich_at_the_Battle_of_Liberty_Gap%2C_Tennessee%2C_June_1863_LCCN2017647020.tif", size: 306 },
+            { url: "https://upload.wikimedia.org/wikipedia/commons/a/a7/%22Keep_America_Out_of_War%22_petitions_presented_to_Congress._Washington%2C_D.C.%2C_April_27._%22Keep_America_Out_of_War%22_was_keynote_of_four_million_petitions_presented_to_members_of_Congress_at_the_LCCN2016873481.tif", size: 154 },
+            { url: "https://upload.wikimedia.org/wikipedia/commons/6/69/%22Houston%2C_Tranquility_base_here_%22_%28LROC563%29.tiff", size: 1200 }
+        ];
+
+        let speedHistory = [];
+        let chartCtx = document.getElementById("speedChart").getContext("2d");
+        let speedChart = new Chart(chartCtx, {
+            type: "line",
+            data: {
+                labels: [],
+                datasets: [{
+                    label: "Speed (Mbps)",
+                    data: [],
+                    borderColor: "blue",
+                    borderWidth: 2,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: { title: { display: true, text: "Test #" } },
+                    y: { title: { display: true, text: "Speed (Mbps)" }, beginAtZero: true }
+                }
+            }
+        });
+
+        function downloadImage(imgObj, callback) {
+            let startTime = new Date().getTime();
+            let img = new Image();
+            img.onload = function () {
+                let endTime = new Date().getTime();
+                let duration = (endTime - startTime) / 1000;
+                let speed = (imgObj.size * 8) / duration; // Mbps
+                callback(speed);
+            };
+            img.onerror = function () {
+                callback(0); // Skip failed downloads
+            };
+            img.src = imgObj.url + "?t=" + new Date().getTime(); // Prevent cache
+        }
+
+        function startTest() {
+            document.getElementById("status").innerText = "Testing your download speed...";
+            document.getElementById("speed").innerText = "0 Mbps";
+            speedHistory = [];
+            speedChart.data.labels = [];
+            speedChart.data.datasets[0].data = [];
+            speedChart.update();
+
+            let totalSpeed = 0;
+            let completed = 0;
+
+            images.forEach(imgObj => {
+                downloadImage(imgObj, (speed) => {
+                    if (speed > 0) {
+                        totalSpeed += speed;
+                        speedHistory.push(speed.toFixed(2));
+                        speedChart.data.labels.push(speedHistory.length);
+                        speedChart.data.datasets[0].data.push(speed);
+                        speedChart.update();
+                    }
+                    completed++;
+                    if (completed === images.length) {
+                        document.getElementById("speed").innerText = totalSpeed.toFixed(2) + " Mbps";
+                        document.getElementById("status").innerText = "Finished!";
+                    }
+                });
+            });
+        }
+
+        window.onload = startTest;
+    </script>
+</body>
+</html>

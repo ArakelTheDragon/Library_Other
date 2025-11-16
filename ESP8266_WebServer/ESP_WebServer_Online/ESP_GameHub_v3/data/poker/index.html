@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Poker Showdown</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="poker.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Poker Showdown</h1>
+  </header>
+  
+  <!-- Main container organizes the game area and updates side-by-side -->
+  <main id="container">
+    <!-- Game Area -->
+    <section id="game-area">
+      <div id="table">
+        <div id="house-cards" class="card-row">House Cards</div>
+        <div class="sides">
+          <div class="side">
+            <div id="bob-info" class="player-info">Bob: 1000 WorkTokens</div>
+            <div id="bob-cards" class="card-column">Bob's Cards</div>
+          </div>
+          <div class="side">
+            <div id="mob-info" class="player-info">Mob: 1000 WorkTokens</div>
+            <div id="mob-cards" class="card-column">Mob's Cards</div>
+          </div>
+        </div>
+        <div id="player-info" class="player-info">You: 1000 WorkTokens</div>
+        <div id="player-cards" class="card-row">Your Cards</div>
+        <div id="pot-display" class="player-info">Pot: 0 WorkTokens</div>
+      </div>
+      
+      <!-- General Controls -->
+      <div class="controls">
+        <button onclick="startGame()">Start Game</button>
+        <button onclick="revealNext()">Reveal Next</button>
+        <button onclick="resetGame()">Reset</button>
+      </div>
+      
+      <!-- Betting Controls (visible only during betting rounds) -->
+      <div id="bet-controls" class="controls" style="display: none;">
+        <input type="number" id="bet-amount" value="50" min="0" />
+        <button onclick="placeBet()">Place Bet</button>
+        <button onclick="playerFold()">Fold</button>
+      </div>
+    </section>
+    
+    <!-- Side Panel for Game Updates -->
+    <aside id="side-panel">
+      <h2>Game Updates</h2>
+      <div id="log"></div>
+    </aside>
+  </main>
+  
+  <!-- Footer with disclaimer -->
+  <footer>
+    <div id="disclaimer" class="disclaimer">
+      Disclaimer: These are simulated WorkTokens and cannot be withdrawn! To trade real WorkTokens visit 
+      <a href="https://www.mintme.com/token/WorkTH/invite" target="_blank">https://www.mintme.com/token/WorkTH/invite</a>
+    </div>
+  </footer>
+</body>
+</html>
+

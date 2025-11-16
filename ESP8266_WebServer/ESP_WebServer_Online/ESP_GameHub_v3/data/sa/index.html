@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CfCbazar's Shopping assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        #search-box {
+            padding: 10px;
+            width: 90%;
+            font-size: 16px;
+        }
+        #results {
+            margin-top: 20px;
+        }
+        .result-item {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin: 5px 0;
+        }
+        #status {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>CfCbazar's <br> Shopping assistant <br>Item Search</h1>
+    <input type="text" id="search-box" placeholder="Search an item..." />
+    <div id="results"></div>
+    <div id="status"></div>
+
+    <script>
+        const items = [
+            {
+                "name": "Wireless Signal Booster Wifi Extender Small Steamed Bun Network Repeater Ap Broadband Home Router Signal Amplification Extension",
+                "supplier": "https://s.click.aliexpress.com/e/_oDxSFBn"
+            },
+            {
+                "name": "WiFi Signal Amplifier Signal Booster WiFi Repeater Wireless Extender Router Router 300Mbps Repeater Extender",
+                "supplier": "https://s.click.aliexpress.com/e/_oDpNE0z"
+            }
+        ];
+
+        function searchItems(searchTerm) {
+            const results = [];
+            const searchWords = searchTerm.toLowerCase().split(' ').filter(word => word.length > 0);
+
+            // Search through each item
+            items.forEach(item => {
+                const itemName = item.name.toLowerCase();
+                const supplierLink = item.supplier.toLowerCase();
+                let matchCount = 0;
+
+                // Count matching words in item name
+                searchWords.forEach(word => {
+                    if (itemName.includes(word)) matchCount++;
+                    if (supplierLink.includes(word)) matchCount++;
+                });
+
+                if (matchCount > 0) {
+                    results.push({ item, matchCount });
+                }
+            });
+
+            // Sort results by match count (descending)
+            results.sort((a, b) => b.matchCount - a.matchCount);
+            return results;
+        }
+
+        function displayResults(results) {
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = ''; // Clear previous results
+
+            if (results.length === 0) {
+                document.getElementById('status').textContent = 'No matches found.';
+                return;
+            }
+
+            results.forEach(result => {
+                const item = result.item;
+                const div = document.createElement('div');
+                div.classList.add('result-item');
+                div.innerHTML = `<strong>${item.name}</strong><br><a href="${item.supplier}" target="_blank">${item.supplier}</a>`;
+                resultsContainer.appendChild(div);
+            });
+
+            document.getElementById('status').textContent = `${results.length} results found.`;
+        }
+
+        function handleSearchInput() {
+            const searchBox = document.getElementById('search-box');
+            const searchTerm = searchBox.value.trim();
+
+            if (searchTerm.startsWith('add:')) {
+                const [_, newItemData] = searchTerm.split('add:');
+                const [itemName, supplierLink] = newItemData.split(',');
+
+                if (itemName && supplierLink) {
+                    // Add the new item to the list
+                    items.push({
+                        name: itemName.trim(),
+                        supplier: supplierLink.trim()
+                    });
+
+                    // Update status
+                    document.getElementById('status').textContent = `Added item: ${itemName.trim()}`;
+                    searchBox.value = ''; // Clear the input box
+                    displayResults([]);
+                } else {
+                    document.getElementById('status').textContent = 'Invalid format. Use add:item_name,supplier_link';
+                }
+
+                return;
+            }
+
+            const results = searchItems(searchTerm);
+            displayResults(results);
+        }
+
+        // Debounced search function
+        let timeout;
+        document.getElementById('search-box').addEventListener('input', function() {
+            clearTimeout(timeout);
+            timeout = setTimeout(handleSearchInput, 300); // Delay search by 300ms
+        });
+    </script>
+</body>
+</html>
+
