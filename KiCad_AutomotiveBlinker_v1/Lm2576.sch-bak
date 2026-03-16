@@ -1,0 +1,208 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 3 3
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Regulator_Switching:LM2576HVS-ADJ U?
+U 1 1 6773DFB3
+P 3500 5350
+F 0 "U?" H 3500 5717 50  0000 C CNN
+F 1 "LM2576HVS-ADJ" H 3500 5626 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:TO-263-5_TabPin3" H 3500 5100 50  0001 L CIN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2576.pdf" H 3500 5350 50  0001 C CNN
+	1    3500 5350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x02 J?
+U 1 1 6773ED09
+P 2300 5350
+F 0 "J?" H 2300 5150 50  0000 C CNN
+F 1 "Vin" V 2300 5300 50  0000 C CNN
+F 2 "" H 2300 5350 50  0001 C CNN
+F 3 "~" H 2300 5350 50  0001 C CNN
+	1    2300 5350
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2500 5250 2650 5250
+$Comp
+L Device:C_Small C?
+U 1 1 6773FF96
+P 2650 5600
+F 0 "C?" H 2742 5646 50  0000 L CNN
+F 1 "100uF" H 2742 5555 50  0000 L CNN
+F 2 "" H 2650 5600 50  0001 C CNN
+F 3 "~" H 2650 5600 50  0001 C CNN
+	1    2650 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2650 5500 2650 5250
+Connection ~ 2650 5250
+Wire Wire Line
+	2650 5250 3000 5250
+Text Notes 2700 5500 0    50   ~ 0
+Cin
+Wire Wire Line
+	2650 5700 2650 5800
+Wire Wire Line
+	2650 5800 2950 5800
+Wire Wire Line
+	3500 5800 3500 5650
+$Comp
+L Device:D_Zener_Small D?
+U 1 1 67741ED6
+P 4150 5600
+F 0 "D?" V 4104 5670 50  0000 L CNN
+F 1 "SK56" V 4195 5670 50  0000 L CNN
+F 2 "" V 4150 5600 50  0001 C CNN
+F 3 "~" V 4150 5600 50  0001 C CNN
+	1    4150 5600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4000 5450 4150 5450
+Wire Wire Line
+	4150 5450 4150 5500
+Wire Wire Line
+	4150 5700 4150 5800
+Wire Wire Line
+	4150 5800 3500 5800
+Connection ~ 3500 5800
+$Comp
+L Device:L_Small L?
+U 1 1 67742D5A
+P 4400 5450
+F 0 "L?" V 4450 5250 50  0000 C CNN
+F 1 "150uH" V 4494 5450 50  0000 C CNN
+F 2 "" H 4400 5450 50  0001 C CNN
+F 3 "~" H 4400 5450 50  0001 C CNN
+	1    4400 5450
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4300 5450 4150 5450
+Connection ~ 4150 5450
+$Comp
+L Device:C_Small C?
+U 1 1 67743AF0
+P 4850 5600
+F 0 "C?" H 4942 5646 50  0000 L CNN
+F 1 "2000uF" H 4942 5555 50  0000 L CNN
+F 2 "" H 4850 5600 50  0001 C CNN
+F 3 "~" H 4850 5600 50  0001 C CNN
+	1    4850 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4850 5500 4850 5450
+Wire Wire Line
+	4850 5450 4500 5450
+Wire Wire Line
+	4850 5700 4850 5800
+Wire Wire Line
+	4850 5800 4150 5800
+Connection ~ 4150 5800
+$Comp
+L Device:R_Small R?
+U 1 1 677448F0
+P 5400 5900
+F 0 "R?" H 5459 5946 50  0000 L CNN
+F 1 "1k, 1%" H 5459 5855 50  0000 L CNN
+F 2 "" H 5400 5900 50  0001 C CNN
+F 3 "~" H 5400 5900 50  0001 C CNN
+	1    5400 5900
+	1    0    0    -1  
+$EndComp
+Connection ~ 4850 5450
+Wire Wire Line
+	5400 6000 4850 6000
+Wire Wire Line
+	4850 6000 4850 5800
+Connection ~ 4850 5800
+Wire Wire Line
+	5400 5700 5400 5750
+Text Notes 4250 5150 0    50   ~ 0
+Vout = Vref(1+ R2/R1)\nVref = 1.25, R1 between 1k and 5k
+Wire Wire Line
+	3000 5450 2950 5450
+Wire Wire Line
+	2950 5450 2950 5800
+Connection ~ 2950 5800
+Wire Wire Line
+	2950 5800 3500 5800
+Wire Wire Line
+	2500 5350 2500 5800
+Wire Wire Line
+	2500 5800 2650 5800
+Connection ~ 2650 5800
+Text GLabel 5700 5450 2    50   Input ~ 0
+Vadj
+$Comp
+L power:GND #PWR?
+U 1 1 6774D01E
+P 3500 5900
+F 0 "#PWR?" H 3500 5650 50  0001 C CNN
+F 1 "GND" H 3505 5727 50  0000 C CNN
+F 2 "" H 3500 5900 50  0001 C CNN
+F 3 "" H 3500 5900 50  0001 C CNN
+	1    3500 5900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3500 5900 3500 5800
+Wire Wire Line
+	4850 5450 5400 5450
+$Comp
+L Device:R_Small R?
+U 1 1 6808D330
+P 5400 5600
+F 0 "R?" H 5459 5646 50  0000 L CNN
+F 1 "3k, 1%" H 5459 5555 50  0000 L CNN
+F 2 "" H 5400 5600 50  0001 C CNN
+F 3 "~" H 5400 5600 50  0001 C CNN
+	1    5400 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5400 5500 5400 5450
+Connection ~ 5400 5450
+Wire Wire Line
+	5400 5450 5700 5450
+Wire Wire Line
+	5650 5250 5650 5750
+Wire Wire Line
+	5650 5750 5400 5750
+Wire Wire Line
+	4000 5250 5650 5250
+Connection ~ 5400 5750
+Wire Wire Line
+	5400 5750 5400 5800
+Text Notes 5750 5350 0    50   ~ 0
+5V
+$Comp
+L power:+5V #PWR?
+U 1 1 680947AB
+P 6150 5400
+F 0 "#PWR?" H 6150 5250 50  0001 C CNN
+F 1 "+5V" H 6165 5573 50  0000 C CNN
+F 2 "" H 6150 5400 50  0001 C CNN
+F 3 "" H 6150 5400 50  0001 C CNN
+	1    6150 5400
+	1    0    0    -1  
+$EndComp
+Text GLabel 6150 5400 3    50   Input ~ 0
+Vadj
+$EndSCHEMATC

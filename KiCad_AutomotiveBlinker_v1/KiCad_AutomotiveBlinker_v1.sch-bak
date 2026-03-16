@@ -1,0 +1,149 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 3
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Sheet
+S 2750 6000 550  1100
+U 68065A07
+F0 "MCU" 50
+F1 "MCU.sch" 50
+F2 "PIN0" I L 2750 6100 50 
+F3 "PIN1" I L 2750 6200 50 
+F4 "PIN2" I L 2750 6300 50 
+F5 "PIN3" I L 2750 6400 50 
+F6 "PIN4" I L 2750 6500 50 
+F7 "PIN5" I L 2750 6600 50 
+F8 "PIN6" I L 2750 6700 50 
+F9 "PIN7" I L 2750 6800 50 
+F10 "PIN8" I L 2750 6900 50 
+F11 "PIN9" I L 2750 7000 50 
+$EndSheet
+$Comp
+L MCU_Module:WeMos_D1_mini U?
+U 1 1 6807BA1E
+P 1450 6600
+F 0 "U?" H 1550 5700 50  0000 C CNN
+F 1 "WeMos_D1_mini" H 1050 5700 50  0000 C CNN
+F 2 "Module:WEMOS_D1_mini_light" H 1450 5450 50  0001 C CNN
+F 3 "https://wiki.wemos.cc/products:d1:d1_mini#documentation" H -400 5450 50  0001 C CNN
+	1    1450 6600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 6807C50A
+P 1350 5800
+F 0 "#PWR?" H 1350 5650 50  0001 C CNN
+F 1 "+5V" H 1365 5973 50  0000 C CNN
+F 2 "" H 1350 5800 50  0001 C CNN
+F 3 "" H 1350 5800 50  0001 C CNN
+	1    1350 5800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 6807CD40
+P 1550 5800
+F 0 "#PWR?" H 1550 5650 50  0001 C CNN
+F 1 "+3V3" H 1565 5973 50  0000 C CNN
+F 2 "" H 1550 5800 50  0001 C CNN
+F 3 "" H 1550 5800 50  0001 C CNN
+	1    1550 5800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6807D393
+P 1450 7400
+F 0 "#PWR?" H 1450 7150 50  0001 C CNN
+F 1 "GND" H 1455 7227 50  0000 C CNN
+F 2 "" H 1450 7400 50  0001 C CNN
+F 3 "" H 1450 7400 50  0001 C CNN
+	1    1450 7400
+	1    0    0    -1  
+$EndComp
+NoConn ~ 1050 6200
+NoConn ~ 1050 6500
+NoConn ~ 1050 6600
+Wire Wire Line
+	1850 6200 2250 6200
+Wire Wire Line
+	2250 6200 2250 6100
+Wire Wire Line
+	2250 6100 2750 6100
+Wire Wire Line
+	1850 6300 2300 6300
+Wire Wire Line
+	2300 6300 2300 6200
+Wire Wire Line
+	2300 6200 2750 6200
+Wire Wire Line
+	1850 6400 2350 6400
+Wire Wire Line
+	2350 6400 2350 6300
+Wire Wire Line
+	2350 6300 2750 6300
+Wire Wire Line
+	1850 6500 2400 6500
+Wire Wire Line
+	2400 6500 2400 6400
+Wire Wire Line
+	2400 6400 2750 6400
+Wire Wire Line
+	1850 6600 2450 6600
+Wire Wire Line
+	2450 6600 2450 6500
+Wire Wire Line
+	2450 6500 2750 6500
+Wire Wire Line
+	1850 6700 2500 6700
+Wire Wire Line
+	2500 6700 2500 6600
+Wire Wire Line
+	2500 6600 2750 6600
+Wire Wire Line
+	1850 6800 2550 6800
+Wire Wire Line
+	2550 6800 2550 6700
+Wire Wire Line
+	2550 6700 2750 6700
+Wire Wire Line
+	1850 6900 2600 6900
+Wire Wire Line
+	2600 6900 2600 6800
+Wire Wire Line
+	2600 6800 2750 6800
+Wire Wire Line
+	1850 7000 2650 7000
+Wire Wire Line
+	2650 7000 2650 6900
+Wire Wire Line
+	2650 6900 2750 6900
+Wire Wire Line
+	2750 7000 2700 7000
+Wire Wire Line
+	2700 7000 2700 7050
+Wire Wire Line
+	2700 7050 1950 7050
+Wire Wire Line
+	1950 7050 1950 6100
+Wire Wire Line
+	1950 6100 1850 6100
+$Sheet
+S 1100 4750 1200 650 
+U 6808B120
+F0 "Lm2576" 50
+F1 "Lm2576.sch" 50
+$EndSheet
+$EndSCHEMATC
