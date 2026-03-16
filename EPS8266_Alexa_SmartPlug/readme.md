@@ -1,7 +1,8 @@
 - The file is precompiled as `flash.bin`
 - You can also check the other files for the source code.
 - Or use [https://esptool.spacehuhn.com](https://esptool.spacehuhn.com) to flash it to the ESP8266  
-- Connect to the WiFi  
-- Link it to your Alexa and control a plug  
+- Connect to the WiFi NodeMCU-Setup and visit 192.168.4.1.
+- Setup your home wifi.
+- From your alexa ink it and control a plug. It will appear as a bulb/plug new device on Alexa.
 - The project is designed to control a relay with an ESP8266  
 - The relay control pin is D2
