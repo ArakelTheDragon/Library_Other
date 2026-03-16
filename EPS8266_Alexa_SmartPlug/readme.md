@@ -1,5 +1,6 @@
-- The file is precompiled as `.bin`  
-- Use [https://esptool.spacehuhn.com](https://esptool.spacehuhn.com) to flash it to the ESP8266  
+- The file is precompiled as `flash.bin`
+- You can also check the other files for the source code.
+- Or use [https://esptool.spacehuhn.com](https://esptool.spacehuhn.com) to flash it to the ESP8266  
 - Connect to the WiFi  
 - Link it to your Alexa and control a plug  
 - The project is designed to control a relay with an ESP8266  
