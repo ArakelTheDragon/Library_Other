@@ -1,17 +1,16 @@
-Use the web flash tool(supported by chrome)
-https://esp.huhn.me/
-
 Download the friles from:
 https://github.com/martin-ger/esp_wifi_repeater/tree/master
 
+Or use the esp_wifi_repeater-master folder in this git repo.
+
 Extract the files and open the firmware folder
 
-Upload the files to the nodeMUC with https://esp.huhn.me/
+Upload the files to the nodeMUC with https://esp.huhn.me/ which works in Chrome/Edge but not in Firefox.
 0x00000.bin at 00000
 0x02000.bin at 02000
 0x82000.bin at 0x82000
 
-Power off and power on the NodeMCU ESP8266
+Power off and power on the NodeMCU ESP8266. You might need to do this and press the reset button multiple times, sometimes to wait as well 5 min after flashing.
 Connect to the MyApp WiFi
 Visit 192.168.4.1
 
