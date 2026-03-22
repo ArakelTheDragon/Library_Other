@@ -1,97 +1,96 @@
-**Disclaimer!!!** All files are provided as is and no guarantee is given that they will work or have no negative impact.
+# **Library_Other**
 
-# All other topics
-Every file is a separate project, or there will be a folder named "Tool_Project_Other" if there are more than 1 files needed.
+A personal sandbox of experiments, prototypes, and creative projects spanning hardware, software, electronics, and even original artwork.  
+This repository is a living library of things I build, test, break, and learn from — a mix of engineering, programming, and imagination.
 
-Example:
-Python_RenamePrefixOfFiles
+---
 
-**We have now started to try to profit so we can support our work by implementing Duino-Coin mining on our nodeMCU projects, the nodeMCU mines on the background a small amount and does the thing its suppose to do as well. For these projects only a binary will be included and no sketch.**
+## 🌟 **What This Repo Contains**
 
-List of projects:
-1. Python_AlarmOnWiFiDrop.zip
-Sounds an alarm when the internet connection drops
+This repo isn’t tied to a single topic. Instead, it’s a collection of small but meaningful projects across multiple domains:
 
-2. Python_RDPInfo.zip
-Displays the remote desktop connection information in the terminal and stores the info in a file. There is an exe file that you can run.
-Includes:
-- Python_RDPInfo_ExtendedWorking.py
-- Python_RDPInfo_OriginalWorking.py
-- Python_RDPInfo.exe - this file is based on the extended version, the original version does not have the option to add the info to a file and close the CMD on key press
+### 🛰️ **ESP8266 / IoT**
+- Web‑controlled interfaces  
+- Sensor dashboards  
+- Wi‑Fi automation experiments  
+- Embedded C/C++ sketches  
 
-4. Python_VPNTest.py
-Test the VPN connection
+### ⚡ **Electronics & Circuits**
+- Breadboard prototypes  
+- Logic circuits  
+- Sensor modules  
+- Power and switching experiments  
 
-5. Python_Speedtest_v3_extended.py
-Test the WiFi speed for a long time and gives a middle result
+### 🧩 **KiCad & PCB Design**
+- Custom PCB layouts  
+- Schematic designs  
+- Footprint libraries  
+- Hardware revisions and test boards  
 
-6. Python_Discod_BasicBot.py
-A Python Discord Basic Bo, it gets the bot online, you will need your bot token from the discord developer program.
+### 🐍 **Python Projects**
+- Utility scripts  
+- Automation tools  
+- Data processing experiments  
+- Small standalone programs  
 
-7. Python_InternetSpeedTest.zip
-Tests the average speed over time. Open the pspeedtest_v3_extendedWorking.exe file and leave it open, the results are also saved into log.txt
+### 🧵 **ANSI C**
+- Low‑level programming exercises  
+- Algorithms and data structures  
+- Microcontroller‑friendly code snippets  
 
-8. Python_AlarmOnWiFiDrop.zip
-Sounds an alarm when the WiFi drops, it includes a Python script with the source code and an exe file that you can use. Please remember to download and place the wav and mp3 files in the same folder.
+### 🎨 **Original Toons & Creative Work**
+- Personal doodles  
+- Character sketches  
+- Fun side‑projects that don’t fit anywhere else  
 
-9. DancefloorPop_v2.m4a
-Sample music made by us
+---
 
-10. DancefloorPop_v3.m4a
-Sample music made by us
+## 🎯 **Purpose of This Repository**
 
-11. DancefloorPop_v4.m4a
-Sample music made by us
+This repo acts as:
 
-12. FunkyPop_v2.m4a
+- A **playground** for learning and experimentation  
+- A **reference library** for future projects  
+- A **storage space** for ideas that don’t need their own repo  
+- A **portfolio** of diverse skills and interests  
 
-13. FunkyPop_v3.m4a
+It’s intentionally broad — because creativity doesn’t stay in one lane.
 
-14. FunkyPop_v4.m4a
-    
-15. ESP8266_LCD
-The project works, display address is 0x27, 16x2 LCD, after many attempts I finally managed to get it to work, VCC to Vin(5V), SDA to D4, SCL D3
+---
 
-16. ESP8266_LCD_WebServer After getting the LCD to work, we made a web server that sends the info to the LCD. The LCD has 32 chars max, the server is set to 32 chars now. In the zip folder from the GitHub link you will find the ESP8266 project for setting up the LCD and the LCD with WebServer.
+## 📁 **Structure**
 
-17. ESP8266_SmarHome_LCDLockDevice_v3 First step to develop a smart home, contains a nodeMCU wemost D1 mini, LCD 16x2 I2C, password login to a web server, the IP address can be found from your router at 192.168.0.1, possible improvements are add a keypad and door lock, develop the switch logic and motor  control, add sound alarm
+Each folder represents a standalone project or topic.  
+Some are polished, others are rough drafts or early prototypes.  
+All of them reflect something I explored, built, or found interesting.
 
-18. ESP8266_LCD096_MonitorMining_v5_Working_v3_Final.zip A server which takes the stats from the mintme pool json response https://www.mintme.com/pool/api/accounts/0xe8911e98a00d36a1841945d6270611510f1c7e88, and displays on an OLED 0.96inch 128x32 display the stats for workers. It stores the earned tokens in an address with pointers and reads it back after a reboot.
+---
 
-19. Speedtest-master.zip Upload the unzipped files to your host, make sure the hosts supports js, css and is fast enough for downloading files for the speedtest. Test at cfctools.unaux.com/speedtest
+## 🛠️ **Technologies & Tools Used**
 
-20. Web_Tool_OnlineCalc a simple calc, can be found at http://cfctools.unaux.com/calc/
+- **ESP8266 / Arduino Core**  
+- **KiCad** for PCB design  
+- **ANSI C** for low‑level programming  
+- **Python 3** for scripting  
+- **Electronics tools** (breadboards, sensors, modules, etc.)  
+- **Drawing tools** for original toons  
 
-21. ESP8266_Repeater.zip A WiFi Mesh Repeaterm can be meshed or with a separate WiFi network, meshed devices have the same WiFi name and password as the original WiFi, they just boost the signal, NOT mesh devices have a different name than the original WiFi
+---
 
-22. Python_Windows_AutoInstall.zip The script installs a list of software to a Windows based system. This simplified the installation times and helps to setup client(worker) PCs faster.
+## 🚧 **Work in Progress**
 
-The list so far contains:
-7-zip
-LibreOffice
-Notepad++
+This repository evolves over time.  
+New experiments appear, old ones get refined, and some projects may eventually grow into their own dedicated repos.
 
-23. Python_RaspberiPi_ClapBulb.zip
-!!! This project is not tested !!!
+---
 
-The task involves writing a code for a Raspberry Pi 4 that operates indoors.
+## 🤝 **Contributions**
 
-The project has two main components:
-- The Raspberry Pi should send an SMS alert through Twilio whenever it detects a 'clap' sound.
-- Upon receiving a "Y" reply via SMS, it should light up an LED bulb.
-- 
-24. ESP8266_Mining_Mineme_v2_Working.zip a working miner with nodeMCU ESP8266, it takes a long time for the miner to appear in the pool, since it has a valid share after a long time, we are using the lowest difficulty miner we have https://web.gonspool.com/ at port 3333, difficulty is 250 to 10000, we mine the mintme coin, our address is from the wallet on mintme.com
+This is primarily a personal library, but suggestions, ideas, or discussions are always welcome.
 
-25. **ESP8266_GLCD128x64_Test_v4_WorkingImprovements**.**zip**, ESP8266 nodeMCU & LCD Display ST7567S GM12864-59N
-26. **Proteus_XC8_MeasureCarBat_v1.zip** Measures the signal on pin AN0 and turns on LEDs in sequence from pin RB0 to RB3. Uses PIC16F88, PIC16F84A does not have an ADC module.
-27. KiCad_SimpleDCMotorControl_v1.zip - simple DC motor direction and RPM control, youtube video
-28. KiCad_nodeMCU_BoilerControl_v1.zip - control a boiler with nodeMCU wemos D1 mini and a DH11 temp sensor
-29. KiCad Automotive Blinker v1 - cool automotive blinked with measuring car batt.
-30. 30. ESP_Alexa_v2.zip - ESP Light Bulb Smart Plug with Alexa, we have now started to try to profit so we can support our work by implementing Duino-Coin mining on our nodeMCU projects, the nodeMCU mines on the background a small amount and does the thing its suppose to do as well. Relay or MOS must be on pin D0 to D10. All pins will turn on.
-Instructions on using:
-- Connect to nodeMCU-setup wifi
-- Set WiFi Name(SSID) and password
-- Discover with Alexa
-- Switch On/Off
+---
 
-31. ESP8266_WebServer (HTML/JS only) - you can host a webserver on the ESP8266, it only supports HTML/JS in this version.
+## 📜 **License**
+
+Unless otherwise stated inside a project folder, assume the code is open for learning, modification, and experimentation.  
+Art assets (toons) remain © their creator.
