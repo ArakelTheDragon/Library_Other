@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAN Diagnostic Emulator</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .console { background: black; color: lime; padding: 10px; height: 200px; overflow-y: auto; font-family: monospace; text-align: left; }
+        .dashboard { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
+        .control { display: flex; flex-direction: column; align-items: center; }
+        .input-container { margin: 20px; }
+        .input-container input { width: 80%; padding: 5px; }
+        button { padding: 10px 20px; margin: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h2>CAN Diagnostic Emulator</h2>
+    <p>Flash the ECU with software version **530** or similar before starting.</p>
+    <p>Setup ECU: **0x10** (power on) → **0x22** (Read Data by Identifier).</p>
+    <p>Response: **0x62** (Positive) or **0x7F** (Negative).</p>
+
+    <div class="input-container">
+        <input type="text" id="commandInput" placeholder="Enter AT command (e.g., AT+RDI=0123)" onkeydown="if(event.key==='Enter') sendCommand()">
+        <button onclick="sendCommand()">Send</button>
+    </div>
+
+    <div class="console" id="consoleLog"></div>
+
+    <h3>Vehicle Dashboard</h3>
+    <div class="dashboard">
+        <div class="control">
+            <label>Speed (km/h): <span id="speedValue">0</span></label>
+            <input type="range" id="speed" min="0" max="200" value="0" oninput="updateValue('speed')">
+        </div>
+        <div class="control">
+            <label>RPM: <span id="rpmValue">0</span></label>
+            <input type="range" id="rpm" min="0" max="8000" value="0" oninput="updateValue('rpm')">
+        </div>
+        <div class="control">
+            <label>Brake: <span id="brakeValue">0</span></label>
+            <input type="range" id="brake" min="0" max="100" value="0" oninput="updateValue('brake')">
+        </div>
+        <div class="control">
+            <label>Gas Pedal: <span id="gasValue">0</span></label>
+            <input type="range" id="gas" min="0" max="100" value="0" oninput="updateValue('gas')">
+        </div>
+    </div>
+
+    <script>
+        let ecuPoweredOn = false;
+        let engineOn = false;
+
+        function logMessage(message) {
+            let log = document.getElementById("consoleLog");
+            log.innerHTML += message + "<br>";
+            log.scrollTop = log.scrollHeight;
+        }
+
+        function updateValue(id) {
+            document.getElementById(id + "Value").innerText = document.getElementById(id).value;
+        }
+
+        function sendCommand() {
+            let input = document.getElementById("commandInput").value.trim();
+            if (!input) return;
+
+            logMessage("> " + input);
+            let response = processATCommand(input);
+            logMessage(response);
+            document.getElementById("commandInput").value = "";
+        }
+
+        function processATCommand(command) {
+            let parts = command.split("=");
+            let cmd = parts[0].trim().toUpperCase();
+            let param = parts.length > 1 ? parts[1].trim() : "";
+
+            if (cmd === "AT+PWRON") {
+                ecuPoweredOn = true;
+                return "ECU Power On: CAN [0x10] → Response: 0x50";
+            } 
+            else if (cmd === "AT+ENGINEON") {
+                if (!ecuPoweredOn) return "ERROR: ECU must be powered on first!";
+                engineOn = true;
+                return "Engine On: CAN [0x10] → Response: 0x50";
+            } 
+            else if (cmd.startsWith("AT+RDI")) {  // Read Data by Identifier
+                if (!ecuPoweredOn || !engineOn) return "ERROR: ECU & Engine must be ON!";
+                if (!param) return "ERROR: Missing Data Identifier!";
+                
+                let dataIdentifier = parseInt(param, 16);
+                let response = generateCANResponse(dataIdentifier);
+                return `CAN Request: 0x22 ${param} → Response: ${response}`;
+            } 
+            else {
+                return "ERROR: Unknown command!";
+            }
+        }
+
+        function generateCANResponse(dataIdentifier) {
+            let hexSpeed = parseInt(document.getElementById("speed").value).toString(16).padStart(2, "0");
+            let hexRPM = parseInt(document.getElementById("rpm").value).toString(16).padStart(4, "0");
+            let hexBrake = parseInt(document.getElementById("brake").value).toString(16).padStart(2, "0");
+            let hexGas = parseInt(document.getElementById("gas").value).toString(16).padStart(2, "0");
+
+            let responses = {
+                0x0123: `0x62 0123 ${hexSpeed} ${hexRPM}`,   // Speed & RPM
+                0x0456: `0x62 0456 ${hexBrake} ${hexGas}`,  // Brake & Gas
+            };
+
+            return responses[dataIdentifier] || "0x7F 22 31 (Invalid ID)";
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Text Adventure Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+    .top-menu {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+    .dashboard {
+      background: #222;
+      color: white;
+      padding: 15px;
+      width: 100%;
+      max-width: 300px;
+      margin: auto;
+      text-align: center;
+      border-radius: 5px;
+    }
+    .content {
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    button, input {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      width: 100%;
+      max-width: 250px;
+      border-radius: 5px;
+    }
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      width: 100%;
+      position: relative;
+      margin-top: 20px;
+    }
+    @media (max-width: 600px) {
+      .dashboard { width: 90%; }
+      button, input { font-size: 14px; }
+      .content { margin-bottom: 80px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-menu">
+    <h2>Text Adventure Game</h2>
+  </div>
+
+  <div class="dashboard">
+    <h3>Player Dashboard</h3>
+    <p><strong>Email:</strong> <input type="email" id="emailInput" placeholder="Enter your email" /></p>
+    <button id="fetchTokensBtn">Check WorkTokens</button>
+    <p><strong>WorkTokens:</strong> <span id="workTokens">Enter email to check</span></p>
+    <p><strong>Selected Class:</strong> <span id="playerClass">None</span></p>
+    <ul id="answersList"></ul>
+  </div>
+
+  <div class="content">
+    <h2>Select Your Class</h2>
+    <button onclick="startGame('Worker')">Worker</button>
+    <button onclick="startGame('Warrior')">Warrior</button>
+    <button onclick="startGame('Farmer')">Farmer</button>
+    <button onclick="startGame('StoreOwner')">Store Owner</button>
+    <button onclick="startGame('Random')">Random</button>
+    <div id="gameContent"></div>
+  </div>
+
+  <footer>
+    <p>Text Adventure Game - All Rights Reserved</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("fetchTokensBtn").addEventListener("click", fetchTokens);
+    });
+
+    function fetchTokens() {
+      const email = document.getElementById("emailInput").value.trim();
+      if (!email) {
+        alert("Please enter your email.");
+        return;
+      }
+
+      fetch(`https://cfcbazar.atwebpages.com/get_tokens.php?email=${encodeURIComponent(email)}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.error) {
+            document.getElementById("workTokens").innerText = "Error fetching tokens";
+          } else {
+            document.getElementById("workTokens").innerText = parseFloat(data.earned_tokens).toFixed(2);
+          }
+        })
+        .catch(() => {
+          document.getElementById("workTokens").innerText = "Network error";
+        });
+    }
+
+    function updateTokens(email, tokens) {
+      fetch('https://cfcbazar.atwebpages.com/update_tokens.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({ email: email, tokens: tokens })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === "success") {
+          fetchTokens();
+        } else {
+          alert("Error updating tokens: " + (data.error || "Unknown"));
+        }
+      })
+      .catch(err => console.error("Update error:", err));
+    }
+
+    function rollDice() {
+      return Math.floor(Math.random() * 39) + 1;
+    }
+
+   const questions = {
+            Worker: [
+                "What is your skill?", "How do you start your day?", "What tool do you rely on?", "What motivates you?",
+                "How do you handle stress?", "Can you lead a team?", "Do you work alone or in a group?", "What is your best strength?",
+                "What is your weakness?", "How do you solve problems?", "Do you prefer routine or dynamic tasks?", "How do you manage time?",
+                "Do you enjoy physical work?", "Can you adapt to new tasks?", "How do you resolve conflicts?", "What kind of work excites you?",
+                "Do you take risks?", "Are you a specialist or a generalist?", "How do you handle criticism?", "Describe your ideal job."
+            ],
+            Warrior: [
+                "What is your weapon of choice?", "How do you prepare for battle?", "What drives you to fight?", "What is your greatest strength?",
+                "What is your biggest weakness?", "How do you train?", "What is your fighting style?", "Do you prefer offense or defense?",
+                "How do you handle injuries?", "What motivates you?", "How do you face fear?", "What is your strategy in combat?",
+                "How do you lead others in battle?", "Do you fight alone or with allies?", "What do you protect?", "What do you fear most?",
+                "What do you value most in an ally?", "How do you react to defeat?", "How do you celebrate victory?", "What is your final goal?"
+            ],
+            Farmer: [
+                "What do you grow?", "How do you manage your farm?", "What is the biggest challenge you face?", "What makes farming rewarding?",
+                "What tools do you use?", "What crops do you specialize in?", "How do you deal with pests?", "How do you prepare for bad weather?",
+                "How do you sell your produce?", "What farming techniques do you prefer?", "How do you sustain your land?", "How do you innovate in farming?",
+                "How does farming connect you to the community?", "What is your most successful crop?", "What’s your biggest farming failure?",
+                "How do you balance farm life?", "How do you keep learning about farming?", "How do you handle financial challenges?",
+                "Who helps you the most?", "What’s your ultimate farming dream?"
+            ],
+            StoreOwner: [
+                "What products do you sell?", "How do you attract customers?", "How do you handle tough business decisions?", "What is your sales strategy?",
+                "How do you deal with competition?", "What marketing techniques do you use?", "How do you manage finances?", "What makes your store special?",
+                "How do you handle customer complaints?", "What is your biggest business mistake?", "What is your biggest success?", "How do you hire employees?",
+                "How do you expand your business?", "How do you plan for the future?", "What is your long-term business goal?", "How do you handle stress?",
+                "What motivates you as an entrepreneur?", "What risks have you taken?", "How do you balance work and life?", "What advice would you give to a new store owner?"
+            ]
+        };
+
+    let currentIndex = 0;
+    let currentClass = "";
+    let answeredCount = 0;
+    let totalEarned = 0;
+    let failedAttempts = 0;
+
+    function startGame(className) {
+      const email = document.getElementById("emailInput").value.trim();
+      if (!email) {
+        alert("Please enter your email before starting.");
+        return;
+      }
+
+      if (className === "Random") {
+        const allClasses = Object.keys(questions);
+        className = allClasses[Math.floor(Math.random() * allClasses.length)];
+      }
+
+      currentClass = className;
+      currentIndex = 0;
+      answeredCount = 0;
+      totalEarned = 0;
+      document.getElementById("playerClass").innerText = className;
+      document.getElementById("answersList").innerHTML = "";
+      askQuestion(currentIndex, currentClass);
+    }
+
+    function askQuestion(index, className) {
+      if (index >= 20) {
+        document.getElementById("gameContent").innerHTML = `
+          <h3>Game Over! You've answered all questions.</h3>
+          <p>🎉 Total Answers: ${answeredCount}</p>
+          <p>💰 Total WorkTokens Earned: ${totalEarned.toFixed(2)}</p>
+          <p>📦 More questions on their way soon. Stay tuned!</p>
+        `;
+        return;
+      }
+
+      failedAttempts = 0;
+      const difficulty = 19 + index;
+      const question = questions[className][index];
+      document.getElementById("gameContent").innerHTML = `
+        <h3>${question}</h3>
+        <p>🎲 Required Dice Roll: ${difficulty}</p>
+        <button id="rollDiceBtn">Roll Dice</button>
+        <p id="diceResult"></p>
+        <div id="answerSection" style="display:none;">
+          <input type="text" id="answerInput" placeholder="Your answer here">
+          <button onclick="recordAnswer(${index}, '${className}')">Submit Answer</button>
+        </div>
+      `;
+
+      document.getElementById("rollDiceBtn").addEventListener("click", () => {
+        attemptRoll(index, className, difficulty);
+      });
+    }
+
+    function attemptRoll(index, className, difficulty) {
+      const dice = rollDice();
+      const email = document.getElementById("emailInput").value.trim();
+      if (!email) {
+        alert("Please enter your email.");
+        return;
+      }
+
+      let resultText = `🎲 You rolled: ${dice}`;
+      const success = dice >= difficulty;
+      if (success) {
+        resultText += " ✅ Success! You can now answer.";
+        document.getElementById("answerSection").style.display = "block";
+        updateTokens(email, 0.2);
+        totalEarned += 0.2;
+      } else {
+        failedAttempts++;
+        updateTokens(email, -0.1);
+        totalEarned -= 0.1;
+        resultText += ` ❌ Too low! (${failedAttempts}/3) Token lost.`;
+        if (failedAttempts >= 3) {
+          alert("Too many failed attempts. Skipping this question.");
+          currentIndex++;
+          askQuestion(currentIndex, className);
+        }
+      }
+
+      document.getElementById("diceResult").innerText = resultText;
+    }
+
+    function recordAnswer(index, className) {
+      const answer = document.getElementById("answerInput").value.trim();
+      if (!answer) {
+        alert("Please enter your answer.");
+        return;
+      }
+
+      const li = document.createElement("li");
+      li.textContent = `${index + 1}. ${answer}`;
+      document.getElementById("answersList").appendChild(li);
+
+      answeredCount++;
+      currentIndex++;
+      askQuestion(currentIndex, className);
+    }
+  </script>
+</body>
+</html>
+

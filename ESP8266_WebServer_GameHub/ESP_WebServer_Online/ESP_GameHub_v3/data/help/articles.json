@@ -1,0 +1,32 @@
+[
+{
+        "title": "About CfCbazar?",
+        "content": "Youe marketplace for smart deals, DIY, music, games & the WorkToken.",
+        "link": "about.html"
+    },
+    {
+        "title": "How our speed test works?",
+        "content": "Check the details of our speed test.",
+        "link": "how_speed.html"
+    },
+    {
+        "title": "How to play games?",
+        "content": "You can play free games by visiting https://cc.free.bg/games.html. You can play premium games by visiting https://cfcbazar.ct.ws, sing in/register then press games from the list om the middle of the page.",
+        "link": "how_games.html"
+    },
+    {
+        "title": "How to earn WorkTokens?",
+        "content": "You can earn WorkTokens by contributing to CfCbazar, completing tasks, or depositing BNB.",
+        "link": "#"
+    },
+    {
+        "title": "How to deposit BNB?",
+        "content": "Go to the Deposit page and send a unique amount to the shown address. After confirmation, your balance is updated.",
+        "link": "#"
+    },
+    {
+        "title": "How to become VIP?",
+        "content": "VIPs enjoy bonuses and early access. You can buy VIP status with WorkTokens on your dashboard.",
+        "link": "#"
+    }
+]

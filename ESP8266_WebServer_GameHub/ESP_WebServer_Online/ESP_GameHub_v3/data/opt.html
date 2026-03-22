@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Optimizer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        .output {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .char-count {
+            font-size: 14px;
+            color: #555;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .secondary-button {
+            background-color: #f44336;
+        }
+        .secondary-button:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>AliExpress Post Optimizer</h1>
+    <div>
+        <label for="productDetails">Paste your product details below:</label><br>
+        <textarea id="productDetails" placeholder="Paste the product details here..."></textarea>
+    </div>
+
+    <button onclick="optimizePost()">Optimize Post</button>
+    <button class="secondary-button" onclick="clearContent()">Clear</button>
+
+    <div id="output" class="output">
+        <p id="optimizedPost"></p>
+        <p id="charCount" class="char-count"></p>
+        <button onclick="copyToClipboard()">Copy Optimized Post</button>
+    </div>
+
+    <script>
+        const charLimit = 280;
+
+        function optimizePost() {
+            const productDetails = document.getElementById('productDetails').value;
+            
+            if (!productDetails.trim()) {
+                alert("Please enter the product details.");
+                return;
+            }
+
+            // Extracting product details from the input (assumes format is consistent)
+            const priceMatch = productDetails.match(/\$\d+(\.\d{2})?/);
+            const linkMatch = productDetails.match(/https:\/\/s\.click\.aliexpress\.com\/e\/[_A-Za-z0-9]+/);
+            
+            const price = priceMatch ? priceMatch[0] : '';
+            const link = linkMatch ? linkMatch[0] : '';
+            
+            const description = "✨ " + (productDetails.split("|")[1] || 'Product') + " for " + price + " — click for your exclusive discount!";
+            const details = "✅ " + (productDetails.split("|")[2] || 'Details') + "\n🔥 " + (productDetails.split("|")[3] || 'Features') + "\n🛍️ Get it now! ➡️ " + link;
+            
+            let postContent = `${description}\n${details}`;
+            
+            // Check if the post exceeds the character limit
+            if (postContent.length > charLimit) {
+                // Trim the content to fit within the character limit
+                postContent = postContent.substring(0, charLimit);
+            }
+            
+            document.getElementById('optimizedPost').textContent = postContent;
+            document.getElementById('charCount').textContent = `${postContent.length} / ${charLimit} characters`;
+        }
+
+        function copyToClipboard() {
+            const optimizedPost = document.getElementById('optimizedPost').textContent;
+            navigator.clipboard.writeText(optimizedPost)
+                .then(() => {
+                    alert("Optimized post copied to clipboard!");
+                })
+                .catch(err => {
+                    alert("Failed to copy text: " + err);
+                });
+        }
+
+        function clearContent() {
+            document.getElementById('productDetails').value = '';
+            document.getElementById('optimizedPost').textContent = '';
+            document.getElementById('charCount').textContent = '';
+        }
+    </script>
+
+</body>
+</html>

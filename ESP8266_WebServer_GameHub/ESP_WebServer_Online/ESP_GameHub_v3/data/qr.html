@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>QR Code Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    input, button {
+      padding: 0.5rem;
+      font-size: 1rem;
+      margin: 0.5rem;
+    }
+    canvas {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>QR Code Generator</h1>
+  <input id="qr-text" type="text" placeholder="Enter text or URL" />
+  <button onclick="generateQR()">Generate</button>
+  <button onclick="downloadQR()">Download</button>
+  <br />
+  <canvas id="qr-canvas"></canvas>
+
+  <!-- QRious Library -->
+  <script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js"></script>
+  <script>
+    const canvas = document.getElementById('qr-canvas');
+    const qr = new QRious({
+      element: canvas,
+      size: 250,
+    });
+
+    function generateQR() {
+      const text = document.getElementById('qr-text').value;
+      qr.value = text || 'https://example.com';
+    }
+
+    function downloadQR() {
+      const link = document.createElement('a');
+      link.download = 'qr-code.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+  </script>
+</body>
+</html>

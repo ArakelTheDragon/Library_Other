@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+#progress-container {
+    margin: 20px auto;
+    width: 80%;
+    background-color: #ddd;
+    border-radius: 25px;
+    height: 30px;
+    position: relative;
+}
+
+#progress-bar {
+    background-color: #4caf50;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    transition: width 0.5s ease-in-out;
+}
+
+#results, #console-output {
+    margin-top: 20px;
+    text-align: left;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#console-output {
+    font-family: monospace;
+    background: #222;
+    color: #0f0;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.5s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.fading {
+    transition: opacity 1s ease-in-out;
+}
+
+.fade {
+    opacity: 0.5;
+}
+
+.highlight-color {
+    color: red;
+}
