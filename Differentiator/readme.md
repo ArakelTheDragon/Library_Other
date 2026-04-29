@@ -1,54 +1,35 @@
-📘 README.md — Differentiator Circuit Tutorial
-
-Differentiator Circuit
-Understanding How It Works, How Frequency & Output Are Determined, and Real‑World Applications
-
----
-
-📡 Overview
-
-A differentiator is an analog circuit that outputs a voltage proportional to the rate of change of the input signal.  
-Instead of responding to the level of a signal, it responds to how fast the signal changes.
-
-This makes it ideal for detecting edges, motion, transitions, and events inside larger systems.
-
-If you want a deeper explanation of the math, tap:  
-differentiator fundamentals
-
----
-
 🔧 1. How the Differentiator Works
 
-A basic RC differentiator uses:
+A basic RC differentiator consists of:
 
 - A capacitor in series  
 - A resistor to ground  
 
-When the input changes quickly, the capacitor produces a current spike, which the resistor converts into a voltage.
+When the input voltage changes rapidly, the capacitor produces a current spike, which the resistor converts into a voltage.
 
 Mathematical Behavior
 
-\[
-V{out} = RC \cdot \frac{dV{in}}{dt}
-\]
+`
+Vout = RC × dVin/dt
+`
 
 - No change in input → output ≈ 0  
 - Fast change → large spike  
 - Slow change → small spike  
 
-This is why a square wave produces sharp positive and negative peaks.
+This is why a square wave produces sharp positive and negative peaks at each transition.
 
 ---
 
 🎛️ 2. How Input, Output, and Frequency Are Determined
 
 Input
-The differentiator reacts to changes, so the best inputs are:
+Differentiators respond best to signals with fast transitions, such as:
 
 - Square waves  
 - Pulses  
 - Edges  
-- Sudden sensor transitions  
+- Sudden sensor changes  
 
 Output
 The output amplitude depends on:
@@ -61,23 +42,23 @@ Faster edge → taller spike
 Slower edge → smaller spike
 
 Frequency Response
-A differentiator is a high‑pass filter.
+A differentiator behaves like a high‑pass filter.
 
-\[
-f_c = \frac{1}{2\pi RC}
-\]
+`
+fc = 1 / (2πRC)
+`
 
 - High frequencies → strong output  
 - Low frequencies → weak output  
 
-If you want to explore frequency behavior, tap:  
+Explore more:  
 high‑pass behavior
 
 ---
 
 🧩 3. Real‑World Applications
-A differentiator is not a full device — it is one part of a larger system.  
-It acts as an event detector.
+A differentiator is not a complete device — it is one functional block inside a larger system.  
+Its job is to act as an event detector.
 
 Here are practical examples:
 
@@ -87,8 +68,8 @@ Here are practical examples:
 
 A differentiator can detect a rapid drop in light from an LDR or photodiode.
 
-- Sudden darkness → spike → trigger a latch → turn on light  
-- Slow sunset → no spike → no false triggers  
+- Sudden darkness → spike → trigger latch → turn on light  
+- Slow sunset → no spike → avoids false triggers  
 
 Useful for:
 - Security lights  
@@ -108,7 +89,7 @@ A differentiator can detect:
 - Sudden IR sensor changes  
 - Quick movement near the nozzle  
 
-The spike triggers:
+The spike can trigger:
 - A monostable  
 - A relay  
 - A pump  
@@ -122,12 +103,12 @@ motion detection
 
 A differentiator can detect:
 
-- Sudden bowl movement  
-- Quick IR sensor changes  
-- A drop in weight  
-- A tap or vibration  
+- Bowl movement  
+- Sudden IR sensor changes  
+- Weight drop  
+- Taps or vibrations  
 
-The spike triggers:
+The spike can activate:
 - A motor  
 - A servo  
 - A timed feeding cycle  
@@ -174,7 +155,7 @@ Input → 9 µF Capacitor → 120 Ω Resistor → Ground
 `
 
 - Square wave edges → sharp spikes  
-- Flat parts → near zero  
+- Flat sections → near zero  
 - Output amplitude depends on RC and input speed  
 
 ---
@@ -182,9 +163,9 @@ Input → 9 µF Capacitor → 120 Ω Resistor → Ground
 🛠️ 5. Practical Notes
 
 - Add a series resistor to limit current  
-- Add a parallel resistor to stabilize noise  
-- Use low‑leakage capacitors for accuracy  
-- For digital triggering, follow with a Schmitt trigger  
+- Add a parallel resistor to reduce high‑frequency noise  
+- Use low‑leakage capacitors for long time constants  
+- For digital logic, follow with a Schmitt trigger  
 - For timing, follow with a 555 monostable  
 
 ---
@@ -201,7 +182,7 @@ Differentiator/
       ├── differentiator_examples.png
 `
 
-Place your screenshots, circuit diagrams, and oscilloscope captures inside /images.
+Place all screenshots, circuit diagrams, and oscilloscope captures inside /images.
 
 ---
 
@@ -210,5 +191,3 @@ Place your screenshots, circuit diagrams, and oscilloscope captures inside /imag
 - Integrator circuits  
 - Pulse generators  
 - 555 monostable  
-
----
