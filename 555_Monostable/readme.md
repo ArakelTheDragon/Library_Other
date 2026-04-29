@@ -25,10 +25,6 @@ To achieve a long-duration delay (approx. **300 seconds**), we use high-impedanc
 | **Gain Stability** | Perfect | Requires Diodes/Thermistor |
 | **Capacitor Leakage** | 0\text{ nA} | Significant over 5+ mins |
 | **Component Tolerance** | 0\% | \pm 5\% to \pm 20\% |
-## How to Use
- 1. **Clone the repo:** git clone https://github.com/your-username/555-timing-tutorial.git
- 2. **Open Simulations:** Load the provided .json or .asc files into your preferred simulator (EveryCircuit, LTSpice, etc.).
- 3. **Build:** Follow the schematics in the /schematics folder to build these on a breadboard.
 ## Future Improvements
  * [ ] Add a Potentiometer for adjustable timing (0 to 10 minutes).
  * [ ] Implement a "reset" button to cancel the 5-minute timer mid-cycle.
