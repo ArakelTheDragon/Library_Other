@@ -1,5 +1,3 @@
-This is a great idea for a GitHub repository! A tutorial on moving from **Analog Oscillators** to **Integrated Timing Circuits** covers a lot of fundamental ground.
-Here is a structured README.md template you can use for your project.
 # From Sine Waves to One-Shots: A 555 & Wien Bridge Tutorial
 This repository documents the transition from generating continuous analog signals to precision timing using the 555 Timer.
 ## 1. The Wien Bridge Oscillator
