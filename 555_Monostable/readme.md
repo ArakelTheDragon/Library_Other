@@ -1,4 +1,4 @@
-# From Sine Waves to One-Shots: A 555 & Wien Bridge Tutorial For Auto Lamp & Device control 
+# From Sine Waves to One-Shots: A 555 & Wien Bridge Tutorial For Auto Lamp & Device Control 
 This repository documents the transition from generating continuous analog signals to precision timing using the 555 Timer.
 ## 1. The Wien Bridge Oscillator
 The first stage of this project focuses on generating a clean sine wave using an Op-Amp.
