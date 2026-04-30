@@ -31,5 +31,4 @@ Use this setup to drive small loads or as a logic‑level indicator in microcont
 ---
 
 ### 🔗 CfCbazar Electronics Tutorials
-Explore more circuit guides and beginner‑friendly projects:
-👉 [CfCbazar eBay Store](https://www.ebay.com/usr/cfcbazar)
+Explore more guides[Store](https://www.ebay.com/usr/cfcbazar)
