@@ -45,7 +45,7 @@ This project uses a single combined image showing both the circuit and the oscil
 ---
 
 📁 Project Files
-👉 https://github.com/ArakelTheDragon/LibraryOther/tree/main/LEDBlinker
+👉 https://github.com/ArakelTheDragon/LibraryOther/tree/main/LED_Blinker
 
 ---
 
