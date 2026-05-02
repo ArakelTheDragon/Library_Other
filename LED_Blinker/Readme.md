@@ -1,4 +1,4 @@
-📘 LED Blinker (AC 50 Hz) — Bridge‑LED Alternating Circuit
+imagesmages� LED Blinker (AC 50 Hz) — Bridge‑LED Alternating Circuit
 
 A simple AC‑driven LED blinker that uses a bridge‑style diode arrangement to alternate LED conduction on each half‑cycle of a 50 Hz AC waveform.
 
@@ -33,7 +33,7 @@ This demonstrates AC rectification, diode directionality, and LED conduction beh
 🖼️ Circuit & Waveform Image
 This project uses a single combined image showing both the circuit and the oscilloscope output.
 
-/images/circuit.jpg
+/Images/circuit.jpg
 
 ---
 
