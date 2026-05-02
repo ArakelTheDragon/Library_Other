@@ -39,7 +39,7 @@ This is a classic method for controlling LED brightness, motor speed, and power 
 This project uses a single combined image showing both the circuit and the oscilloscope output.
 
 `
-!Circuit and Waveform
+![Circuit and Waveform](Images/circuit.jpg)
 `
 
 ---
@@ -53,7 +53,7 @@ This project uses a single combined image showing both the circuit and the oscil
 ---
 
 📁 Project Files
-👉 (Insert your GitHub folder link here once created)
+👉 https://github.com/ArakelTheDragon/Library_Other/tree/main/555_PWM
 
 ---
 
