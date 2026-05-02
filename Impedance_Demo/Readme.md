@@ -47,9 +47,7 @@ The oscilloscope clearly shows the phase differences and current magnitudes, mak
 🖼️ Circuit & Waveform Image
 This project uses a single combined image showing all three circuits and the oscilloscope output.
 
-`
-!Circuit and Waveform
-`
+![Circuit and Waveform](Images/circuit.jpg)
 
 ---
 
