@@ -1,23 +1,23 @@
-imagesmages� LED Blinker (AC 50 Hz) — Bridge‑LED Alternating Circuit
+📘 LED Blinker (AC 50 Hz)
 
-A simple AC‑driven LED blinker that uses a bridge‑style diode arrangement to alternate LED conduction on each half‑cycle of a 50 Hz AC waveform.
+A simple AC‑driven LED blinker that uses a diode arrangement to alternate LED conduction on each half‑cycle of a 50 Hz AC waveform.
 
 ---
 
 🔧 Components Used
 - AC Voltage Source (50 Hz)  
 - 4× Diodes (D1–D4)  
-- 1× LED Load (two LEDs alternating)  
+- 1× LED Load (alternating conduction)  
 - 500 Ω Resistor (R1)
 
 ---
 
 ⚙️ How the Circuit Works
-This circuit uses a 50 Hz AC source feeding a diode arrangement that behaves like a simplified bridge.  
+This circuit uses a 50 Hz AC source feeding a diode network that behaves like a simplified bridge.  
 During the positive half‑cycle, current flows through one LED path, lighting D1/D2.  
 During the negative half‑cycle, current reverses and lights D3/D4.  
-The result is an alternating LED blink at 50 Hz, too fast for the eye to see as blinking, but clearly visible in simulation waveforms.  
-This demonstrates AC rectification, diode directionality, and LED conduction behavior.
+The result is an alternating LED blink at 50 Hz — too fast to see with the naked eye, but clearly visible in simulation.  
+This demonstrates AC rectification, diode polarity, and LED conduction behavior.
 
 ---
 
@@ -33,19 +33,19 @@ This demonstrates AC rectification, diode directionality, and LED conduction beh
 🖼️ Circuit & Waveform Image
 This project uses a single combined image showing both the circuit and the oscilloscope output.
 
-/Images/circuit.jpg
+file:///Images/circuit.jpg
 
 ---
 
 💡 Practical Notes
-- LEDs will not visibly blink at 50 Hz — simulation reveals the alternation.  
-- Increasing frequency reduces LED conduction time per cycle.  
-- Using different LED colors can show conduction differences due to forward voltage.  
+- LEDs won’t visibly blink at 50 Hz — simulation reveals the alternation.  
+- Different LED colors show different conduction thresholds.  
+- Increasing frequency reduces LED conduction time per cycle.
 
 ---
 
 📁 Project Files
-👉 (Insert your GitHub folder link here)
+👉 https://github.com/ArakelTheDragon/LibraryOther/tree/main/LEDBlinker
 
 ---
 
@@ -59,5 +59,3 @@ This project uses a single combined image showing both the circuit and the oscil
 🛒 CfCbazar Store
 Explore more guides, kits, and digital tools:  
 https://www.ebay.com/usr/cfcbazar
-
----
