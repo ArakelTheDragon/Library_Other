@@ -33,7 +33,7 @@ This demonstrates AC rectification, diode polarity, and LED conduction behavior.
 🖼️ Circuit & Waveform Image
 This project uses a single combined image showing both the circuit and the oscilloscope output.
 
-file:///Images/circuit.jpg
+![Circuit and Waveform](Images/circuit.jpg)
 
 ---
 
