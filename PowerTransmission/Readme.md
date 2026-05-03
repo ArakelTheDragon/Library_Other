@@ -72,7 +72,11 @@ No reactive behavior is present, and current is determined only by total resista
 
 This image shows the voltage waveform and both circuit versions used in the 40 Hz transmission line demo.
 
-![Power Transmission Simulation](/Images/circuit.jpg)
+## 📈 Power Transmission Line Simulation
+
+Below is the waveform and circuit comparison used in this 40 Hz AC transmission line demo.
+
+![Power Transmission Simulation](Images/circuit.jpg)
 
 ---
 
