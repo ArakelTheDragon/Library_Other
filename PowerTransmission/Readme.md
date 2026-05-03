@@ -68,6 +68,12 @@ This increases total impedance and reduces current flow, just like real transmis
 Without inductors, the circuit is purely resistive.  
 No reactive behavior is present, and current is determined only by total resistance.
 
+## 📈 Power Transmission Line Simulation
+
+This image shows the voltage waveform and both circuit versions used in the 40 Hz transmission line demo.
+
+![Power Transmission Simulation](/Images/power_transmission_simulation.jpg)
+
 ---
 
 ## ⚡ Key Concepts Demonstrated
