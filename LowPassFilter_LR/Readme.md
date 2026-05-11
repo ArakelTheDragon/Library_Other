@@ -1,6 +1,7 @@
 # 📘 Low‑Pass RL Filter — Electronics Tutorial  
 Clean up noisy signals using a simple inductor‑based low‑pass filter.
 
+![Low Pass Filter Circuit](https://github.com/ArakelTheDragon/Library_Other/blob/main/LowPassFilter_LR/Images/circuit.jpg)
 ---
 
 ## 🔧 Project Overview  
