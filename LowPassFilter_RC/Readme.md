@@ -74,10 +74,8 @@ This means:
 ```
 /LowPassFilter_RC/
 │── README.md
-│── circuit.jpg
-│── simulation.json
 └── /Images/
-    └── rc_output.png
+    └── circuit.jpg
 ```
 
 ---
