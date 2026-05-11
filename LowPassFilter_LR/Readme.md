@@ -69,12 +69,10 @@ This means:
 
 ## 📁 Recommended GitHub Folder Structure  
 ```
-/Low_Pass_Filter/
+/LowPassFilter_LR/
 │── README.md
-│── circuit.png
-│── simulation.json
 └── /images/
-    └── low_pass_output.png
+    └── circuit.jpg
 ```
 
 ---
