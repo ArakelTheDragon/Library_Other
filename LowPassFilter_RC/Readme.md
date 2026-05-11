@@ -81,9 +81,7 @@ This means:
 ---
 
 ## 🖼️ Image Embed (for README)  
-```
 ![Low Pass RC Filter](https://raw.githubusercontent.com/ArakelTheDragon/Library_Other/main/LowPassFilter_RC/Images/circuit.jpg)
-```
 
 ---
 
