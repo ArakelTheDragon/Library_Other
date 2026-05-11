@@ -20,14 +20,12 @@ A noise source is injected into the line, and the RL network filters it out, pro
 ---
 
 ## 🧠 How the Filter Works  
-Inductor impedance increases with frequency:
+Inductor reactance increases with frequency:
 
-\[
-X_L = 2\pi f L
-\]
+`X_L = 2 · π · f · L`
 
-- **Low frequencies** → small \(X_L\) → signal passes  
-- **High frequencies** → large \(X_L\) → noise blocked  
+- **Low frequencies** → small `X_L` → signal passes  
+- **High frequencies** → large `X_L` → noise blocked  
 
 High‑frequency noise is forced into the **187 Ω resistor to ground**, while the 454 Hz signal passes through the inductor.
 
@@ -51,17 +49,13 @@ https://www.digikey.com/en/resources/conversion-calculators/conversion-calculato
 - **L = 65.5 mH**  
 - **R = 187 Ω**
 
-Cutoff frequency formula:
+**Cutoff frequency formula:**
 
-\[
-f_c = \frac{R}{2\pi L}
-\]
+`f_c = R / (2 · π · L)`
 
-Calculation:
+**Calculation with your values:**
 
-\[
-f_c = \frac{187}{2\pi \cdot 0.0655} \approx 454.7\text{ Hz}
-\]
+`f_c = 187 / (2 · π · 0.0655) ≈ 454.7 Hz`
 
 ### 🎯 Interpretation  
 Your cutoff frequency is **≈ 455 Hz**, almost identical to your signal frequency.
@@ -87,12 +81,13 @@ This means:
 
 ## 🎥 Optional: YouTube Short Script  
 **Title:** Low‑Pass Filter Removes Noise — RL Circuit Explained Fast  
+
 **Script:**  
 - Show noisy signal  
 - Show RL filter  
 - Show clean output  
 - Text overlay: “Inductors block high frequencies. Noise removed.”  
-- End with CfCbazar branding
+- End with CfCbazar branding  
 
 ---
 
