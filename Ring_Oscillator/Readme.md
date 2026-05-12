@@ -93,9 +93,7 @@ This project demonstrates a **3‑stage CMOS ring oscillator** running at **8.32
 ---
 
 ## 8️⃣ Image Embed
-```
 ![Ring Oscillator](Images/Ring_Oscillator.jpg)
-```
 
 ---
 
