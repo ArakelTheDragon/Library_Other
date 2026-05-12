@@ -102,9 +102,7 @@ The output waveform shows clean transitions between **0 V and 2 V**, with minima
 ---
 
 ## 8️⃣ Image Embed
-```
 ![CMOS Inverter](Images/CMOS_Inverter.jpg)
-```
 
 ---
 
