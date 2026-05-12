@@ -72,9 +72,7 @@ High‑frequency noise is absorbed by transistor junction capacitances.
 ---
 
 ## 🖼️ Image Embed (for README)  
-```
 ![Voltage Regulator](Images/circuit.jpg)
-```
 
 ---
 
